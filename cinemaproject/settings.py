@@ -28,6 +28,23 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.railway.app',
+    'https://*.onrender.com',
+    'https://*.up.railway.app',
+    'http://localhost:8000',
+    'https://cinema-production-4610.up.railway.app',
+]
+
+# CSRF Cookie настройки
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = False
+CSRF_USE_SESSIONS = False
+CSRF_COOKIE_SAMESITE = 'Lax'
+
+# Session настройки
+SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SAMESITE = 'Lax'
 
 # Application definition
 
@@ -135,3 +152,7 @@ LOGIN_REDIRECT_URL = 'movie_list'
 LOGOUT_REDIRECT_URL = 'login'
 
 AUTH_USER_MODEL = 'cinema.User'
+
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = 'DENY'
